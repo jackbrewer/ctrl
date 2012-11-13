@@ -2,40 +2,19 @@ window.module('control-misc-ui', function (module) {
 
   $(function() {
 
-    /** jQuery UI Datepicker **/
-    $.datepicker.setDefaults({dayNamesMin: $.datepicker._defaults.dayNamesShort});
-    $('.datepicker input').datepicker(
-      { dateFormat: 'DD d MM, yy'
-      , showOtherMonths: true
-      , selectOtherMonths: true
-      , minDate: 0
-      , firstDay: 1
-      , beforeShow : function (input, picker) {
-          picker.dpDiv
-            .removeClass('above')
-            .removeClass('below');
-          setTimeout(function () {
-            var dppos = $(picker.dpDiv).offset().top
-             , inputpos = $(input).offset().top;
-            if (dppos < inputpos) {
-              picker.dpDiv.addClass('above');
-            } else {
-              picker.dpDiv.addClass('below');
-            }
-          });
-        }
-      });
+    /* Pikaday  */
+    if(document.getElementById('datepicker')){
+      var picker = new Pikaday({
+          field: document.getElementById('datepicker')
+        , firstDay: 1
+      })
+    }
 
     /** Chosen Select Boxes **/
     $('.chzn-select').chosen({
         allow_single_deselect: true
       , disable_search_threshold: 10
     });
-
-    var availableTags = ['ActionScript','AppleScript','Asp','BASIC','C','C++','Clojure','COBOL','ColdFusion','Erlang','Fortran','Groovy','Haskell','Java','JavaScript','Lisp','Perl','PHP','Python','Ruby','Scala','Scheme']
-    $('.autocomplete').autocomplete({
-      source: availableTags
-    })
 
     /** Fancybox **/
     $('.fancybox, [rel="fancybox-group"]').fancybox(

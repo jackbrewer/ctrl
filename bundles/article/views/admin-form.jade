@@ -40,7 +40,7 @@ block content
     fieldset
       h3 Content
       mixin dropdownForObject({ name: 'type' }, { label: 'Type', data: entity, required: true, errors: errors, list: typesDropdown })
-      mixin textboxFieldForObject({ name: 'body', class: 'rich-editor', placeholder: 'Write your article here...' }, { formRowClass: 'form-row-full-width', label: 'Aticle Content', data: entity, required: false, rows: 25, errors: errors })
+      mixin textboxFieldForObject({ name: 'body', class: 'rich-editor', placeholder: 'Write your article here...' }, { formRowClass: 'form-row-full-width', label: 'Article Content', data: entity, required: false, rows: 25, errors: errors })
       mixin textboxFieldForObject({ name: 'summary' }, { formRowClass: 'form-row-full-width', label: 'Article Summary', data: entity, errors: errors, information: 'If you leave this blank a first part of the main content will be used.', rows: 5 })
 
     fieldset

@@ -2,14 +2,6 @@ window.module('control-misc-ui', function (module) {
 
   $(function() {
 
-    /* Pikaday  */
-    if(document.getElementById('datepicker')){
-      var picker = new Pikaday({
-          field: document.getElementById('datepicker')
-        , firstDay: 1
-      })
-    }
-
     /** Chosen Select Boxes **/
     $('.chzn-select').chosen({
         allow_single_deselect: true
@@ -30,6 +22,18 @@ window.module('control-misc-ui', function (module) {
       $(this).parent('.notification').fadeTo(300, 0).slideUp(300);
       e.preventDefault();
     });
+
+
+    //
+    // PIKADAY DATEPICKER
+    //
+
+    $('.datepicker input').each(function(){
+      var picker = new Pikaday({
+          field: this
+        , firstDay: 1
+      })
+    })
 
     /* Check nav height */
     function staticNav() {
